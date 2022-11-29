@@ -9,17 +9,20 @@ terraform {
 
 provider "ssh" {
   # Configuration options
+
 }
 
 
 resource "ssh_resource" "inossh" {
     host = "95.111.230.51"
+    private_key = "/grigscript"
+    timeout = "180s"
 
     user = "root"
 
     port  = 22
 
-    commands = ["wget"]
+    commands = ["pwd"]
 
 
 
