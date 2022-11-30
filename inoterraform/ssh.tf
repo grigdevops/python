@@ -16,7 +16,7 @@ provider "ssh" {
 resource "ssh_resource" "inossh" {
     host = "95.111.230.51"
     private_key = "/grigscript"
-    timeout = "180s"
+    timeout = "60s"
 
     user = "root"
 

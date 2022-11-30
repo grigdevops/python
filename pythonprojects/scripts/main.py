@@ -1,11 +1,11 @@
 import os
-import sys
+
 
 # sys module for path arguments  day_streamer
 import sys
 project_path = sys.argv[1]
 # execution time run
-os.system(f"cd streamer && {project_path}/docker-compose -f {project_path}/docker-compose.yml -f {project_path}/docker-compose.prod.yml up --build -d")
+os.system(f"cd {project_path}/streamer && docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d")
 os.system("sudo apt-get install -y net-tools htop nano")
 
 
@@ -25,9 +25,9 @@ print(f"{isFileRestart} is exist")
 
 
 
-dayrestart_str = '''#!/bin/bash
-docker-compose -f /home/armen/streamer/docker-compose.yml -f /home/armen/streamer/docker-compose.prod.yml down
-docker-compose -f /home/armen/streamer/docker-compose.yml -f /home/armen/streamer/docker-compose.prod.yml up --build'''
+dayrestart_str = f'''#!/bin/bash
+docker-compose -f {project_path}/streamer/docker-compose.yml -f {project_path}/streamer/docker-compose.prod.yml down
+docker-compose -f {project_path}/streamer/docker-compose.yml -f {project_path}/streamer/docker-compose.prod.yml up --build'''
 
 healthcheck_str = ''''#!/bin/bash
 CONTAINER_NAME=streamer-inorain-streamer-1
