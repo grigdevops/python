@@ -1,88 +1,114 @@
-from art import logo
+
 import random
 
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+logo = """
+.------.            _     _            _    _            _    
+|A_  _ |.          | |   | |          | |  (_)          | |   
+|( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
+| \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
+|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
+`-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\\
+      |  \/ K|                            _/ |                
+      `------'                           |__/           
+"""
+
+
+
+
 
 
 def deal_card():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    "Choose random card from the deck."
+    card = random.choice(cards)
+    return card
 
-    random_card = random.choices(cards, k=1)
-    return random_card
 
 
-def sum_of_cards(cards):
-    if sum(cards) == 21 and len(cards) == 2:
+
+
+
+
+
+
+def calculate_score(player_cards):
+    print(player_cards)
+
+    if sum(player_cards) == 21 and len(player_cards)==2:
         return 0
-    if sum(cards) > 21 and 11 in cards:
-        cards.remove(11)
-        cards.append(1)
-    return sum(cards)
+    if sum(player_cards) > 21 and 11 in player_cards:
+        player_cards.remove(11)
+        player_cards.append(1)
 
-def compare(user_sum, computer_sum):
+    return sum(player_cards)
 
-    if user_sum > 21  and computer_sum > 21:
-        return "Both went over . You lose but"
 
-    if user_sum == computer_sum:
-        return "Draw "
-    elif computer_sum == 0:
-        return "Lose, opponent has BlackJack"
-    elif user_sum == 0:
-        return "Win with a BlackJack"
-    elif user_sum > 21:
-        return "You went over, PC win "
-    elif computer_sum > 21:
-        return "Win with a BlackJack, opponent went over"
-    elif user_sum > computer_sum:
-        return "You win "
+
+def compare(user_score, computer_score):
+
+    if user_score > 21 and computer_score > 21:
+        return "You went over . Your Lose"
+
+    if user_score == computer_score:
+        "Draw the cards"
+    elif computer_score == 0:
+        print("Computer WIN The Game")
+    elif user_score == 0:
+        print("User WIN the game, you have BlackJack")
+    elif user_score > 21:
+        "User lose the game"
+    elif computer_score > 21:
+        "Computer Lose the Game"
+    elif user_score > computer_score:
+        return "User win the game"
     else:
-        return "You Lose"
+        return "Computer win the game"
+
+
 
 def play_game():
     print(logo)
 
+    user_cards = []
+    computer_cards = []
+    continue_game = True
 
+    for i in range(0, 2):
+        user_cards.append(deal_card())
+        computer_cards.append(deal_card())
 
-    user_cards = random.choices(cards, k=2)
-    print(user_cards)
-    computer_cards = random.choices(cards, k=2)
-    print(computer_cards)
-    final_of_game = False
+    while continue_game:
+        u_score = calculate_score(user_cards)
+        p_score = calculate_score(computer_cards)
 
+        print(f"Your cards: {user_cards}, current score : {u_score}")
+        print(f"Computer's first card : {p_score}")
 
-    while not final_of_game:
-        sum_user = sum_of_cards(user_cards)
-        sum_computer = sum_of_cards(computer_cards)
-
-        print(f" Your Cards: {user_cards}, current score: {sum_user}")
-        print(f" Computer's first card: {computer_cards[0]}")
-
-        if sum_user == 0 or sum_computer == 0 or sum_user > 21:
-            final_of_game = True
+        if u_score == 0 or p_score == 0 or u_score > 21:
+            continue_game = False
         else:
-            user_continue = input("Type 'Y' to get another card, type 'N' to pass")
-            if user_continue == 'Y':
+            draw_card = input("Type 'y' to get another card, type 'n' to pass: ")
+            if draw_card == 'y':
                 user_cards.append(deal_card())
             else:
-                final_of_game = True
+                continue_game = False
 
-
-    while sum_computer != 0 and sum_computer < 17:
+    while p_score != 0 and p_score < 17:
         computer_cards.append(deal_card())
-        sum_computer = sum_of_cards(computer_cards)
+        p_score = calculate_score(computer_cards)
 
-    print(f"   Your final hand: {user_cards}, final score: {sum_user}")
-    print(f"   Computer's final hand: {computer_cards}, final score: {sum_computer}")
-    print(compare(sum_user, sum_computer))
+    print(f"   Your final hand: {user_cards}, final score: {u_score}")
+    print(f"   Computer's final hand: {computer_cards}, final score: {p_score}")
+    print(compare(u_score, p_score))
 
-while input("Type 'Y' to get another card, type 'N' to") == "Y":
+
+
+
+
+
+while input("Do you want to play a game of BlackJack? type 'y' or 'n': ") == 'y':
     play_game()
-
-
-
-
-
-
 
 
 
