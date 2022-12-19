@@ -1,0 +1,317 @@
+config:
+  cloudfront:
+    - name: hirebeeai
+      enabled: True
+      s3_bucket_name: staff
+      connection_attempts: 3
+      connection_timeout: 10
+      origin_path: /
+      protocol_policy: MATCH_VIEWER  # HTTP_ONLY | MATCH_VIEWER | HTTPS_ONLY
+      http_port: 80
+      https_port: 443
+      keepalive_timeout: 5
+      read_timeout: 30
+      allowed_methods: ALLOW_GET_HEAD # ALLOW_ALL | ALLOW_GET_HEAD | ALLOW_GET_HEAD_OPTIONS | methods(list)
+      viewer_protocol: REDIRECT_TO_HTTPS  # REDIRECT_TO_HTTPS | HTTPS_ONLY | ALLOW_ALL
+      cached_methods: CACHE_GET_HEAD  # CACHE_GET_HEAD | CACHE_GET_HEAD_OPTIONS | methods(list)
+      compress: False
+      smooth_streaming: False
+      certificate: arn:aws:acm:us-east-1:932903288367:certificate/7a0d103b-3ede-4ddf-9c7f-b35a2ab57078
+      hz_name: "cdn.hirebee.ai"
+      aliases:
+        - dev
+      hz_id: Z01232362M8TRE60K2V4M
+      price_class: PRICE_CLASS_ALL  # PRICE_CLASS_100 | PRICE_CLASS_200 | PRICE_CLASS_ALL
+      cache_policy: CACHING_OPTIMIZED  # CACHING_DISABLED | CACHING_OPTIMIZED | CACHING_OPTIMIZED_FOR_UNCOMPRESSED_OBJECTS | ELEMENTAL_MEDIA_PACKAGE
+      error_responses:
+        - http_status: 403
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 404
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 504
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+#      cache_policy_cfg:
+#        name: ac-ui
+#        comment: cache commnet
+#        default_ttl: 86400
+#        min_ttl: 1
+#        max_ttl: 31536000
+#        behaviors:
+#          - behavior_type: none # none | allow_list | deny_list | all
+#            class: CacheCookieBehavior
+#            type: cookie_behavior
+#            list:
+#              -
+#          - behavior_type: none # none | allow_list
+#            class: CacheHeaderBehavior
+#            type: header_behavior
+#            list:
+#              -
+#          - behavior_type: allow_list # none | allow_list | deny_list | all
+#            class: CacheQueryStringBehavior
+#            type: query_string_behavior
+#            list:
+#              - aws.manifestfilter
+#              - start
+#              - end
+#              - m
+#        enable_accept_encoding_brotli: True
+#        enable_accept_encoding_gzip: True
+    - name: staffam
+      enabled: True
+      s3_bucket_name: staff
+      connection_attempts: 3
+      connection_timeout: 10
+      origin_path: /
+      protocol_policy: MATCH_VIEWER  # HTTP_ONLY | MATCH_VIEWER | HTTPS_ONLY
+      http_port: 80
+      https_port: 443
+      keepalive_timeout: 5
+      read_timeout: 30
+      allowed_methods: ALLOW_GET_HEAD # ALLOW_ALL | ALLOW_GET_HEAD | ALLOW_GET_HEAD_OPTIONS | methods(list)
+      viewer_protocol: REDIRECT_TO_HTTPS  # REDIRECT_TO_HTTPS | HTTPS_ONLY | ALLOW_ALL
+      cached_methods: CACHE_GET_HEAD  # CACHE_GET_HEAD | CACHE_GET_HEAD_OPTIONS | methods(list)
+      compress: False
+      smooth_streaming: False
+      certificate: arn:aws:acm:us-east-1:932903288367:certificate/015bcdc1-128b-493c-b38c-f44b5056d8ee
+      hz_name: "cdn.staff.am"
+      aliases:
+        - dev
+      hz_id: Z029112129DRJMPSB70KF
+      price_class: PRICE_CLASS_ALL  # PRICE_CLASS_100 | PRICE_CLASS_200 | PRICE_CLASS_ALL
+      cache_policy: CACHING_OPTIMIZED  # CACHING_DISABLED | CACHING_OPTIMIZED | CACHING_OPTIMIZED_FOR_UNCOMPRESSED_OBJECTS | ELEMENTAL_MEDIA_PACKAGE
+      error_responses:
+        - http_status: 403
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 404
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 504
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+    - name: hirebeeuz
+      enabled: True
+      s3_bucket_name: staff
+      connection_attempts: 3
+      connection_timeout: 10
+      origin_path: /hirebee.uz
+      protocol_policy: MATCH_VIEWER  # HTTP_ONLY | MATCH_VIEWER | HTTPS_ONLY
+      http_port: 80
+      https_port: 443
+      keepalive_timeout: 5
+      read_timeout: 30
+      allowed_methods: ALLOW_GET_HEAD # ALLOW_ALL | ALLOW_GET_HEAD | ALLOW_GET_HEAD_OPTIONS | methods(list)
+      viewer_protocol: REDIRECT_TO_HTTPS  # REDIRECT_TO_HTTPS | HTTPS_ONLY | ALLOW_ALL
+      cached_methods: CACHE_GET_HEAD  # CACHE_GET_HEAD | CACHE_GET_HEAD_OPTIONS | methods(list)
+      compress: False
+      smooth_streaming: False
+      certificate: arn:aws:acm:us-east-1:932903288367:certificate/a1655b64-d83f-4800-9f49-ae45026ae321
+      hz_name: "cdn.hirebee.uz"
+      aliases:
+        - dev
+      hz_id: Z0281839WCY66P3800K6
+      price_class: PRICE_CLASS_ALL  # PRICE_CLASS_100 | PRICE_CLASS_200 | PRICE_CLASS_ALL
+      cache_policy: CACHING_OPTIMIZED  # CACHING_DISABLED | CACHING_OPTIMIZED | CACHING_OPTIMIZED_FOR_UNCOMPRESSED_OBJECTS | ELEMENTAL_MEDIA_PACKAGE
+      error_responses:
+        - http_status: 403
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 404
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 504
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+    - name: hirebeeby
+      enabled: True
+      s3_bucket_name: staff
+      connection_attempts: 3
+      connection_timeout: 10
+      origin_path: /hirebee.by
+      protocol_policy: MATCH_VIEWER  # HTTP_ONLY | MATCH_VIEWER | HTTPS_ONLY
+      http_port: 80
+      https_port: 443
+      keepalive_timeout: 5
+      read_timeout: 30
+      allowed_methods: ALLOW_GET_HEAD # ALLOW_ALL | ALLOW_GET_HEAD | ALLOW_GET_HEAD_OPTIONS | methods(list)
+      viewer_protocol: REDIRECT_TO_HTTPS  # REDIRECT_TO_HTTPS | HTTPS_ONLY | ALLOW_ALL
+      cached_methods: CACHE_GET_HEAD  # CACHE_GET_HEAD | CACHE_GET_HEAD_OPTIONS | methods(list)
+      compress: False
+      smooth_streaming: False
+      certificate: arn:aws:acm:us-east-1:932903288367:certificate/8f3ff429-8be4-47c0-b663-2924fadb8300
+      hz_name: "cdn.hirebee.by"
+      aliases:
+        - dev
+      hz_id: Z04993371XNJDTK2H3NC1
+      price_class: PRICE_CLASS_ALL  # PRICE_CLASS_100 | PRICE_CLASS_200 | PRICE_CLASS_ALL
+      cache_policy: CACHING_OPTIMIZED  # CACHING_DISABLED | CACHING_OPTIMIZED | CACHING_OPTIMIZED_FOR_UNCOMPRESSED_OBJECTS | ELEMENTAL_MEDIA_PACKAGE
+      error_responses:
+        - http_status: 403
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 404
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 504
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+    - name: hirebeetj
+      enabled: True
+      s3_bucket_name: staff
+      connection_attempts: 3
+      connection_timeout: 10
+      origin_path: /hirebee.tj
+      protocol_policy: MATCH_VIEWER  # HTTP_ONLY | MATCH_VIEWER | HTTPS_ONLY
+      http_port: 80
+      https_port: 443
+      keepalive_timeout: 5
+      read_timeout: 30
+      allowed_methods: ALLOW_GET_HEAD # ALLOW_ALL | ALLOW_GET_HEAD | ALLOW_GET_HEAD_OPTIONS | methods(list)
+      viewer_protocol: REDIRECT_TO_HTTPS  # REDIRECT_TO_HTTPS | HTTPS_ONLY | ALLOW_ALL
+      cached_methods: CACHE_GET_HEAD  # CACHE_GET_HEAD | CACHE_GET_HEAD_OPTIONS | methods(list)
+      compress: False
+      smooth_streaming: False
+      certificate: arn:aws:acm:us-east-1:932903288367:certificate/41e223e9-9135-451f-8d1c-b3c517d73a58
+      hz_name: "cdn.hirebee.tj"
+      aliases:
+        - dev
+      hz_id: Z04993382QSYZBEZUIJHN
+      price_class: PRICE_CLASS_ALL  # PRICE_CLASS_100 | PRICE_CLASS_200 | PRICE_CLASS_ALL
+      cache_policy: CACHING_OPTIMIZED  # CACHING_DISABLED | CACHING_OPTIMIZED | CACHING_OPTIMIZED_FOR_UNCOMPRESSED_OBJECTS | ELEMENTAL_MEDIA_PACKAGE
+      error_responses:
+        - http_status: 403
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 404
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 504
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+    - name: hirebeekg
+      enabled: True
+      s3_bucket_name: staff
+      connection_attempts: 3
+      connection_timeout: 10
+      origin_path: /hirebee.kg
+      protocol_policy: MATCH_VIEWER  # HTTP_ONLY | MATCH_VIEWER | HTTPS_ONLY
+      http_port: 80
+      https_port: 443
+      keepalive_timeout: 5
+      read_timeout: 30
+      allowed_methods: ALLOW_GET_HEAD # ALLOW_ALL | ALLOW_GET_HEAD | ALLOW_GET_HEAD_OPTIONS | methods(list)
+      viewer_protocol: REDIRECT_TO_HTTPS  # REDIRECT_TO_HTTPS | HTTPS_ONLY | ALLOW_ALL
+      cached_methods: CACHE_GET_HEAD  # CACHE_GET_HEAD | CACHE_GET_HEAD_OPTIONS | methods(list)
+      compress: False
+      smooth_streaming: False
+      certificate: arn:aws:acm:us-east-1:932903288367:certificate/6ce0155b-d894-46de-be7b-40aa89120aab
+      hz_name: "cdn.hirebee.kg"
+      aliases:
+        - dev
+      hz_id: Z02824963PMQCGFHX7MBY
+      price_class: PRICE_CLASS_ALL  # PRICE_CLASS_100 | PRICE_CLASS_200 | PRICE_CLASS_ALL
+      cache_policy: CACHING_OPTIMIZED  # CACHING_DISABLED | CACHING_OPTIMIZED | CACHING_OPTIMIZED_FOR_UNCOMPRESSED_OBJECTS | ELEMENTAL_MEDIA_PACKAGE
+      error_responses:
+        - http_status: 403
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 404
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 504
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+    - name: hirebeeru
+      enabled: True
+      s3_bucket_name: staff
+      connection_attempts: 3
+      connection_timeout: 10
+      origin_path: /hirebee.ru
+      protocol_policy: MATCH_VIEWER  # HTTP_ONLY | MATCH_VIEWER | HTTPS_ONLY
+      http_port: 80
+      https_port: 443
+      keepalive_timeout: 5
+      read_timeout: 30
+      allowed_methods: ALLOW_GET_HEAD # ALLOW_ALL | ALLOW_GET_HEAD | ALLOW_GET_HEAD_OPTIONS | methods(list)
+      viewer_protocol: REDIRECT_TO_HTTPS  # REDIRECT_TO_HTTPS | HTTPS_ONLY | ALLOW_ALL
+      cached_methods: CACHE_GET_HEAD  # CACHE_GET_HEAD | CACHE_GET_HEAD_OPTIONS | methods(list)
+      compress: False
+      smooth_streaming: False
+      certificate: arn:aws:acm:us-east-1:932903288367:certificate/6de6e593-2e34-4e8e-b34c-cf499d7ad5b6
+      hz_name: "cdn.hirebee.ru"
+      aliases:
+        - dev
+      hz_id: Z06475972FON264W53P0X
+      price_class: PRICE_CLASS_ALL  # PRICE_CLASS_100 | PRICE_CLASS_200 | PRICE_CLASS_ALL
+      cache_policy: CACHING_OPTIMIZED  # CACHING_DISABLED | CACHING_OPTIMIZED | CACHING_OPTIMIZED_FOR_UNCOMPRESSED_OBJECTS | ELEMENTAL_MEDIA_PACKAGE
+      error_responses:
+        - http_status: 403
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 404
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 504
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+    - name: hirebeekz
+      enabled: True
+      s3_bucket_name: staff
+      connection_attempts: 3
+      connection_timeout: 10
+      origin_path: /hirebee.kz
+      protocol_policy: MATCH_VIEWER  # HTTP_ONLY | MATCH_VIEWER | HTTPS_ONLY
+      http_port: 80
+      https_port: 443
+      keepalive_timeout: 5
+      read_timeout: 30
+      allowed_methods: ALLOW_GET_HEAD # ALLOW_ALL | ALLOW_GET_HEAD | ALLOW_GET_HEAD_OPTIONS | methods(list)
+      viewer_protocol: REDIRECT_TO_HTTPS  # REDIRECT_TO_HTTPS | HTTPS_ONLY | ALLOW_ALL
+      cached_methods: CACHE_GET_HEAD  # CACHE_GET_HEAD | CACHE_GET_HEAD_OPTIONS | methods(list)
+      compress: False
+      smooth_streaming: False
+      certificate: arn:aws:acm:us-east-1:932903288367:certificate/38e57523-18fe-4d51-adbc-2baf6d4e5e21
+      hz_name: "cdn.hirebee.kz"
+      aliases:
+        - dev
+      hz_id: Z049895621DCCR80WSJIO
+      price_class: PRICE_CLASS_ALL  # PRICE_CLASS_100 | PRICE_CLASS_200 | PRICE_CLASS_ALL
+      cache_policy: CACHING_OPTIMIZED  # CACHING_DISABLED | CACHING_OPTIMIZED | CACHING_OPTIMIZED_FOR_UNCOMPRESSED_OBJECTS | ELEMENTAL_MEDIA_PACKAGE
+      error_responses:
+        - http_status: 403
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 404
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
+        - http_status: 504
+          response_http_status: 200
+          response_page_path: '/index.html'
+          ttl: 0
