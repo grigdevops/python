@@ -1,0 +1,33 @@
+---
+UserName: Antonio
+Password: fire123+
+phone: 123456
+Skills:
+  - Basic
+  - Python
+  - SQL
+  - Django
+  - JavaScript
+  - Rest Framework
+
+#---
+#  UserName: Maino
+#  Password: fire123 *
+#  phone: 9879098
+#  Skills:
+#      -Python
+#      -SQL
+#      -Django
+#      -Rest Framework
+#      -JavaScript
+
+#---
+#  UserName: George
+#  Password: fire123 *
+#  phone: 9879098
+#  Skills:
+#      -Python
+#      -SQL
+#      -Django
+#      -Rest Framework
+#      -JavaScript
