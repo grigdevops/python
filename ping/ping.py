@@ -6,12 +6,12 @@ import os
 
 with open(r"server.yml") as file:
     servers = yaml.full_load(file)
-    for item, doc in servers.items():
-        print(item, doc)
+    for routers, hostname in servers.items():
+        print(routers, hostname)
 
 
 
-for host in doc:
+for host in hostname:
     response = os.system("ping -c 1 " + host)
     # and then check the response...
     if response == 0:
