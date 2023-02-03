@@ -1,0 +1,7 @@
+devices:
+  - hostname: device1
+    ip_address: google.com
+  - hostname: device2
+    ip_address: facebook.com
+  - hostname: device3
+    ip_address: grigireieifwfiwiefiwefwefe.com
